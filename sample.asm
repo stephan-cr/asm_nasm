@@ -11,7 +11,7 @@ extern sqrt
 section .text
 global _start
 _start:
-  movsd xmm0, [val]
+  movsd xmm0, [rel val]
   call sqrt
   lea rdi, [rel fmt]
   call printf
