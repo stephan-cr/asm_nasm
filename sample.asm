@@ -22,7 +22,7 @@ loop:
   cmp dword [counter], 0
   jnz loop
   mov rdi, 0
-  mov eax, SYS_exit
+  mov rax, SYS_exit
   syscall
   ret
 
