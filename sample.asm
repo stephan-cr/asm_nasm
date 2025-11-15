@@ -18,8 +18,8 @@ _start:
 loop:
   lea rdi, [rel str]
   call puts
-  dec [counter]
-  cmp [counter], 0
+  dec dword [counter]
+  cmp dword [counter], 0
   jnz loop
   mov rdi, 0
   mov eax, SYS_exit
