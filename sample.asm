@@ -15,12 +15,12 @@ _start:
   call sqrt
   lea rdi, [rel fmt]
   call printf
-loop:
+.loop:
   lea rdi, [rel str]
   call puts
   dec dword [counter]
   cmp dword [counter], 0
-  jnz loop
+  jnz .loop
   mov rdi, 0
   mov rax, SYS_exit
   syscall
