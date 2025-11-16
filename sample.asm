@@ -11,6 +11,11 @@ extern sqrt
 section .text
 global _start
 _start:
+  mov rsi, qword [rsp]          ; read argc
+  mov rdx, qword [rsp + 8]      ; read argv[0]
+  mov rcx, qword [rsp + 16]     ; read argv[1]
+  lea rdi, [rel fmt_args]
+  call printf
   movsd xmm0, [rel val]
   call sqrt
   lea rdi, [rel fmt]
@@ -29,6 +34,7 @@ _start:
 section .rodata
 str: db "Hello World", 0
 val: dq 2.0
+fmt_args: db "argc = %x, argv[0] = %s, argv[1] = %s", 10, 0
 fmt: db "sqrt = %f", 10, 0
 
 section .data
